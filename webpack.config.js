@@ -34,7 +34,7 @@ Encore
 
 */
 
-  .addEntry("app", "./assets/app.js")
+  .addEntry('app', './assets/app.js')
 
   .enableTypeScriptLoader()
 
@@ -92,7 +92,7 @@ Encore
 
 // enables Sass/SCSS support
 
-//.enableSassLoader()
+.enableSassLoader()
 
 // uncomment if you use TypeScript
 
