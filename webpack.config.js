@@ -92,7 +92,7 @@ Encore
 
 // enables Sass/SCSS support
 
-  .enableSassLoader()
+.enableSassLoader()
 
 // uncomment if you use TypeScript
 
@@ -110,6 +110,6 @@ Encore
 
 // uncomment if you're having problems with a jQuery plugin
 
-//.autoProvidejQuery()
+.autoProvidejQuery()
 
 module.exports = Encore.getWebpackConfig();
