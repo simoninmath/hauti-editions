@@ -9,11 +9,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MainController extends AbstractController
 {
-
     /**
      * @Route("/app/{slug?}", name="app", requirements={"slug"=".+"})
      */
-
     public function app(): Response
     {
         return $this->render('app.html.twig');
@@ -22,9 +20,8 @@ class MainController extends AbstractController
     /**
      * @Route("/api/helloword/{name}", name="api_helloword")
      */
-
-    public function apiHelloword(string $name): Response
-    {
-        return new JsonResponse('hello ' . $name);
-    }
+    // public function apiHelloword(string $name): Response
+    // {
+    //   return new JsonResponse('hello ' . $name);
+    // }
 }
