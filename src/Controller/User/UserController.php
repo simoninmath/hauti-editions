@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 use PhpParser\Node\Name;
 use Random\Randomizer;
@@ -10,16 +10,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
-    #[Route('/user/{userId}', name: 'User Page')]
+    #[Route('/user/{userId}', name: 'user_page')]
 
     public function goToUserPage($userId)
     {
-        $userName = "Mathieu";
+        $nom = "Simonin";
+        $prenom = "Mathieu";
+        $age = "42 ans";
+        $userName = "{$prenom} + {$nom} + {$age}";
         $userId = hash('md5', $userName);
 
-        return $this->render("user.html.twig", [
+        return $this->render('user.html.twig', [
 
-            'user' => $userId,
+            'userId' => $userId,
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'age' => $age
 
         ]);
     }
