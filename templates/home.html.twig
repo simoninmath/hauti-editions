@@ -1,7 +1,17 @@
 {# templates/home.html.twig #}
 
-<div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
-    <div class="card-body">
-        <div {{ vue_component('Home', { 'name': 'Mathieu' }) }}></div>
-    </div>
-</div>
+<html>
+    <head>
+        <title> {{ title }} </title>
+    </head>
+
+    <body>
+        <h1>{{ title }}</h1>
+        <p>Cupidatat in et irure anim nisi. Et ex nisi aute proident. Laboris ea eiusmod aliquip est ea ullamco anim. Est nostrud sint anim qui proident sit.</p>
+
+        <h2>Bienvenue sur la {{ title }} page, {{ prenom }} {{ nom }} </h2>
+        <h3><b>Vous avez {{ age }} </b></h3>
+
+    </body>
+
+</html>

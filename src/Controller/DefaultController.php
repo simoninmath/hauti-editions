@@ -6,17 +6,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MainController extends AbstractController
+class DefaultController extends AbstractController
 {
-    #[Route("/main")]
+    #[Route("/home")]
 
-    public function goToMainPage()
+    public function goToHomePage()
     {
         $nom = "Simonin";
         $prenom = "Mathieu";
         $age = "42 ans";
 
-        return $this->render('main.html.twig', [
+        return $this->render('home.html.twig', [
 
             'nom' => $nom,
             'prenom' => $prenom,
