@@ -6,14 +6,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route("/")]
-
 class MainController extends AbstractController
 {
+    #[Route("/main")]
 
-    public function test()
+    public function goToMainPage()
     {
-        return $this->render("main.html.twig");
+        $nom = "Simonin";
+        $prenom = "Mathieu";
+        $age = "42 ans";
+
+        return $this->render('main.html.twig', [
+
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'age' => $age
+
+        ]);
     }
 
 }
