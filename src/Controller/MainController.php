@@ -1,27 +1,20 @@
 <?php
-// src/Controller/MainController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
+
+#[Route("/")]
 
 class MainController extends AbstractController
 {
-    /**
-     * @Route("/app/{slug?}", name="app", requirements={"slug"=".+"})
-     */
-    public function app(): Response
+
+    public function test()
     {
-        return $this->render('home.html.twig');
+        return $this->render("main.html.twig");
     }
 
-    /**
-     * @Route("/api/helloword/{name}", name="api_helloword")
-     */
-    public function apiHelloword(string $name): Response
-    {
-        return new JsonResponse('hello ' . $name);
-    }
 }
+
