@@ -14,7 +14,7 @@ class MainController extends AbstractController
      */
     public function app(): Response
     {
-        return $this->render('app.html.twig');
+        return $this->render('home.html.twig');
     }
 
     /**
