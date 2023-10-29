@@ -8,7 +8,21 @@
 
         <h2>Bienvenue {{ prenom }} {{ nom }} </h2>
         <h3><b>Vous avez {{ age }} </b></h3>
+        {% if age >= 18 %}
+            <p> Vous êtes MAJEUR </p>
+            {% else %}
+                <p>Vous êtes MINEUR</p>
+        {% endif %}
         <h4><strong> Votre userId est {{ userId }}</strong></h4>
+        {# <p>Pour revenir à la home, l'URL est {{ path('home') }}</p> #}
+
+        {# {% if app.user %}
+            <p> Se déconnecter </p>
+        {% endif %} #}
+
+        <p>Vous êtes {{ nom|upper }} </p>
+
+
     </body>
 
 </html>
