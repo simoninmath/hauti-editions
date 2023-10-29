@@ -22,13 +22,17 @@ class UserController extends AbstractController
         $age = "42 ans";
         $userName = "{$prenom} + {$nom} + {$age}";
         $userId = hash('md5', $userName);
+        $date = new \DateTime('now');
+        $tabUsers = ["Mathieu", "Faroosh", "Hakim"];
 
         return $this->render('user.html.twig', [
 
             'userId' => $userId,
             'nom' => $nom,
             'prenom' => $prenom,
-            'age' => $age
+            'age' => $age,
+            'date' => $date,
+            'tabUsers' => $tabUsers
 
         ]);
     }

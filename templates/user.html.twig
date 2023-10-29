@@ -20,8 +20,16 @@
             <p> Se déconnecter </p>
         {% endif %} #}
 
-        <p>Vous êtes {{ nom|upper }} </p>
-
+        <p>Vous êtes {{ nom|upper }} date {{ date|date("d/m/y H:i") }}</p>
+        {{ age >= 18 ? "Vous êtes majeur" : "Vous êtes mineur"}}
+        <p>Vous avez {{tabUsers|length}} utilisateurs dans votre Tableau</p>
+        <ul>
+            {% for users in tabUsers %}
+                <li>
+                    {{ users }}
+                </li>
+            {% endfor %}
+        </ul>
 
     </body>
 
