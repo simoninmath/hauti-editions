@@ -7,10 +7,13 @@ use Random\Randomizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\param;
+
+#[Route(name: 'app_')]
 
 class UserController extends AbstractController
 {
-    #[Route('/user/{userId}', name: 'user_page')]
+    #[Route('/user/{userId}', name: 'user')]
 
     public function goToUserPage($userId)
     {
