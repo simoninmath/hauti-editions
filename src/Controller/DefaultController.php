@@ -12,7 +12,7 @@ class DefaultController extends AbstractController
 {
     #[Route('/home', name: 'home')]
 
-    public function goToHomePage()
+    public function renderHomePage()
     {
         $nom = "Simonin";
         $prenom = "Mathieu";
@@ -27,9 +27,16 @@ class DefaultController extends AbstractController
         ]);
     }
 
+    #[Route('/default', name: 'default')]
+
+    public function renderDefaultPage()
+    {
+        return $this->render('default.html.twig');
+    }
+
     #[Route('/contact', name: 'contact')]
 
-    public function goToContactPage()
+    public function renderContactPage()
     {
         return $this->render('contact.html.twig');
     }

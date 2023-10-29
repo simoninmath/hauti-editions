@@ -34,6 +34,10 @@ Encore
 
 */
 
+  .enableSingleRuntimeChunk()
+
+  .addEntry("bootstrap", "bootstrap")
+
   .addEntry("app", "./assets/app.js")
 
   .enableTypeScriptLoader()
