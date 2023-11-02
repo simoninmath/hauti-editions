@@ -1,3 +1,6 @@
-// @import "~bootstrap/scss/bootstrap";
-// @import '~bootstrap/dist/css/bootstrap.css';
-@import "~bootswatch/dist/zephyr/_variables";
+@import "~bootswatch/dist/superhero/_variables";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: rgb(96, 230, 47);
+}

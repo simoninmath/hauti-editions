@@ -1,7 +1,7 @@
 import "./bootstrap.js";
 import "./styles/global.scss";
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.bundle";
 
 //bootstrap
 require("bootstrap");
