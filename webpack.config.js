@@ -36,13 +36,13 @@ Encore
 
   .enableSingleRuntimeChunk()
 
-  .addEntry("bootstrap", "bootstrap")
+  // .addEntry("bootstrap", "bootstrap")
 
   .addEntry("app", "./assets/app.js")
 
   .enableTypeScriptLoader()
 
-  .enableVueLoader(() => {}, { runtimeCompilerBuild: false })
+  // .enableVueLoader(() => {}, { runtimeCompilerBuild: false })
 
   // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
 
@@ -87,20 +87,20 @@ Encore
 
   .enableVersioning(Encore.isProduction())
 
-  .configureBabel((config) => {
+/*   .configureBabel((config) => {
     config.plugins.push("@babel/plugin-transform-class-properties");
-  })
+  }) */
 
   // enables @babel/preset-env polyfills
 
-  .configureBabelPresetEnv((config) => {
+/*   .configureBabelPresetEnv((config) => {
     config.useBuiltIns = "usage";
 
     config.corejs = 3;
-  });
+  }); */
 
 // enables Sass/SCSS support
-// .enableSassLoader()
+.enableSassLoader()
 
 // uncomment if you use TypeScript
 //.enableTypeScriptLoader()
