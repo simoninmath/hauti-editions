@@ -2,47 +2,60 @@
 
 namespace App\Repository;
 
-use App\Entity\User;
+use App\Entity\user;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<User>
+ * @extends ServiceEntityRepository<user>
  *
- * @method User|null find($id, $lockMode = null, $lockVersion = null)
- * @method User|null findOneBy(array $criteria, array $orderBy = null)
- * @method User[]    findAll()
- * @method User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method user|null find($id, $lockMode = null, $lockVersion = null)
+ * @method user|null findOneBy(array $criteria, array $orderBy = null)
+ * @method user[]    findAll()
+ * @method user[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UserRepository extends ServiceEntityRepository
-{
-    public function __construct(ManagerRegistry $registry)
-    {
-        parent::__construct($registry, User::class);
+
+class userRepository extends ServiceEntityRepository {
+
+    public function __construct(
+        ManagerRegistry $registry
+    ) {
+        parent::__construct($registry, user::class);
     }
 
-//    /**
-//     * @return User[] Returns an array of User objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?User
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function fetchInfoFromuserWithDql(): array
+    { 
+        $entityManager = $this->getDoctrine()->getManager();
+        $dql = $entityManager->createQuery(
+
+            'SELECT user.id, 
+             user.emai, user.roles, 
+             FROM App\Entity\user 
+             AS user'
+        );
+
+        $result = $dql->getResult();
+
+        return $result;
+    }
+
+
+    public function insertEmailFromuser(int $id, string $email, string $roles): void
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $connection = $entityManager->getConnection();
+
+        $dql = "INSERT INTO 
+                user (id, email, createdAt, roles) 
+                VALUES 
+                (:id, :email, NOW(), roles)";
+
+        $preparedQuery = $connection->prepare($dql);
+        $preparedQuery->bindParam(':id', $id);
+        $preparedQuery->bindParam(':email', $email);
+        $preparedQuery->bindParam(':roles', $roles);
+        $preparedQuery->execute();
+    }
+
 }
